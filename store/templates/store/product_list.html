@@ -1,0 +1,46 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+<div id="sidebar">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <form method="get" action="">
+        {% csrf_token %}
+        {{ filter.form.as_ul}}
+        <button type="submit">search</button>
+    </form>
+</div>
+<div id="main" class="product-list">
+    {% for obj in object_list %}
+    <div class="item">
+        {{ obj.name }}
+        <a>
+            <img src="{% if obj.image %}{{ obj.image.url  }}{% else %}{% static
+    ' img/no_image.png' %}{% endif %}">
+        </a>
+        {{ obj.price }} zł
+    </div>
+    {% endfor %}
+</div>
+<div>
+    <table id="myTable" border="1">
+        <caption>Products</caption>
+        <thead>
+        <tr>
+            <th>category</th>
+            <th>name</th>
+            <th>amount</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for obj in object_list %}
+        <tr class="item">
+            <td>{{ obj.category|default:"-" }}</td>
+            <td>{{ obj.name|default:"-" }}</td>
+            <td>{{ obj.price|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

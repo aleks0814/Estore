@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Mój sklep{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+  <body>
+	<a href="{% url 'store:product_list' %}">Products</a> |
+	<hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>
