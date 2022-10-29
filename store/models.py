@@ -12,6 +12,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('store:product_list',
+                       )
+
+
 
 class Producer(models.Model):
     name = models.CharField(max_length=255, db_index=True)
@@ -43,3 +48,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('store:product_detail', args=[self.id, self.slug])

@@ -20,3 +20,8 @@ class ProductListView(ListView):
             object_list=queryset,
             filter=my_filter,
             **kwargs)
+
+
+class ProductDetail(DetailView):
+    model = Product
+    template_name = 'store/products/product_detail.html'
