@@ -1,6 +1,9 @@
 from django.views.generic import ListView, DetailView
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from .models import Category, Producer, Product
 from .filters import ProductFilter
+from cart.forms import CartAddProductForm
 
 
 class ProductListView(ListView):
@@ -25,3 +28,15 @@ class ProductListView(ListView):
 class ProductDetail(DetailView):
     model = Product
     template_name = 'store/products/product_detail.html'
+
+
+def product_detail(request, id, slug):
+    product = get_object_or_404(Product,
+                                id=id,
+                                slug=slug,
+                                in_stock=True)
+    cart_product_form = CartAddProductForm()
+    return render(request,
+                  'store/products/product_detail.html',
+                  {'product': product,
+                   'cart_product_form': cart_product_form})

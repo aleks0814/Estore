@@ -77,11 +77,11 @@ table.cart img {
 }
 
 tbody td.num {
-    text-align:right;
+    text-align:center;
 }
 
 td input[type="submit"] {
-    font-size:12px;
+    font-size:15px;
     padding:4px 10px;
 }
 
@@ -91,17 +91,17 @@ form p label, form p input {
 }
 
 form p label {
-    font-size:14px;
-    padding-bottom:4px;
+
 }
 
 form p input {
-    width:300px;
-    font-size:13px;
+    width:360px;
+    height:auto;
+    font-size:11px;
+      z-index: 1;
     margin-bottom:10px;
     padding:10px 12px;
-    border:0;
-    background:#efefef;
+    border:10;
     color:#666;
     border-radius:4px;
 }
@@ -148,9 +148,19 @@ ul.errorlist {
 }
 
 #sidebar {
-    width:360px;
-    padding:30px 20px 0 0;
-    float:left;
+  width: 380px;
+  position: fixed;
+  z-index: 1;
+  top: 90px;
+  left: 10px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 10;
+}
+
+#sidebar p{
+    margin:0;
+    padding:0;
 }
 
 #sidebar ul{
@@ -178,10 +188,9 @@ ul.errorlist {
 }
 
 #main {
-    float:left;
-    width: 96%;
-    margin-right:-220px;
-    overflow:hidden;
+  margin-left: 380px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
 .product-list .item {

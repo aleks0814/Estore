@@ -2,37 +2,25 @@
 {% load static %}
 {% block content %}
 <div id="sidebar">
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
     <form method="get" action="">
         {{ filter.form.as_ul}}
         <button type="submit">search</button>
     </form>
 </div>
-    <div id="main" class="product-list">
-        <h1>{% if category %}{{ category.name }}{% else %}Produkty{% endif %}</h1>
-        {% for product in object_list %}
-        <div class="item">
-            <a href="{{ product.get_absolute_url }}">
-                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static
+<div id="main" class="product-list">
+    <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+    {% for product in object_list %}
+    <div class="item">
+        <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static
     ' img/no_image.png' %}{% endif %}">
-            </a>
-            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
-            {{ product.price }} zł
-        </div>
-    {% endfor %}
+        </a>
+        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+        {{ product.price }} zł
     </div>
-<!--<div id="main" class="product-list">-->
-<!--    {% for obj in object_list %}-->
-<!--    <div class="item">-->
-<!--        {{ obj.name }}-->
-<!--        <a>-->
-<!--            <img src="{% if obj.image %}{{ obj.image.url  }}{% else %}{% static-->
-<!--    ' img/no_image.png' %}{% endif %}">-->
-<!--        </a>-->
-<!--        {{ obj.price }} zł-->
-<!--    </div>-->
-<!--    {% endfor %}-->
-<!--</div>-->
+    {% endfor %}
+</div>
 <div>
     <table id="myTable" border="1">
         <caption>Products</caption>
