@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_filters',
     'store',
     'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SESSION_COOKIE_AGE = 36000
 
 ROOT_URLCONF = 'core.urls'
 
