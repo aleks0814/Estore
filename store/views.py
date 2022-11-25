@@ -9,9 +9,10 @@ from cart.forms import CartAddProductForm
 class ProductListView(ListView):
     model = Product
     template_name = 'store/products/product_list.html'
+    paginate_by = 8
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().filter(is_active=True)
         return ProductFilter(self.request.GET, queryset=queryset).qs
 
     def get_context_data(self, *, object_list=None, **kwargs):
