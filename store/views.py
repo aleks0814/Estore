@@ -19,7 +19,6 @@ class ProductListView(ListView):
         queryset = object_list if object_list is not None else self.object_list
         queryset.filter(is_active=False)
         my_filter= ProductFilter(self.request.GET, queryset=queryset)
-        print(queryset)
         return super().get_context_data(
             object_list=queryset,
             filter=my_filter,

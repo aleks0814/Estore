@@ -115,43 +115,47 @@ ul.errorlist {
    padding:0;
 }
 
-
 #header {
-    padding:10px 100px;
-    font-size:18px;
-    overflow:auto;
-}
-
-#subheader {
-    background:#ececec;
-    color:#444;
+    background-color: #333;
     padding:15px 100px;
-    overflow:auto;
+    overflow: hidden;
+    position: sticky;
+    top:0;
 }
 
 #header .logo {
-    font-family: 'Ubuntu', sans-serif;
-    float:left;
-    color:#333;
-    font-size:22px;
-    margin-right:10%;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 22px;
 }
-
-#subheader .cart {
-    float:right;
-    padding-top:4px;
+#header .logo:hover {
+  background: #ddd;
+  color: black;
+ }
+#header .cart {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 #content {
     padding:0 100px;
     overflow:hidden;
+
 }
 
 #sidebar {
   width: 23%;
   position: fixed;
   z-index: 1;
-  top: 90px;
   left: 0;
   background: #eee;
   overflow-x: hidden;
@@ -202,6 +206,7 @@ ul.errorlist {
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
   margin-left:23%
+
 
 
 }
